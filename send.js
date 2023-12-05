@@ -30,13 +30,15 @@ phones = phones.map((phone) => {
 console.log("Reading message from message.txt");
 const message = fs.readFileSync("message.txt", "utf-8");
 
-client.on("ready", () => {
-  console.log('Whatsapp successfully connected.');
+client.on("ready", async () => {
+  console.log('\nWhatsapp successfully connected.');
 
   const media = new MessageMedia("image/jpeg", img, "image.jpeg");
 
   try {
     for (let index = 0; index < phones.length; index++) {
+      console.log('\nDelaying for a second to avoid ban...');
+      await delay(random(3000, 7000));
       console.log("Sending to " + phones[index]);
       client.sendMessage(phones[index], message, {
         media,
@@ -51,3 +53,9 @@ client.on("ready", () => {
     process.exit(1);
   }
 });
+
+const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+
+async function delay(ms) {
+  await new Promise(resolve => setTimeout(resolve, ms));
+}

@@ -1,0 +1,16 @@
+{
+  "name": "whatsapp_broadcast_bot",
+  "version": "1.0.0",
+  "description": "A script to automaticly broadcast whatsapp message.",
+  "main": "send.js",
+  "scripts": {
+    "test": "Error: no test specified",
+    "start": "node send.js"
+  },
+  "author": "EdgarM",
+  "license": "ISC",
+  "dependencies": {
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.23.0"
+  }
+}

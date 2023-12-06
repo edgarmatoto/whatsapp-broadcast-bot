@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a simple code that allows users to automatically broadcast WhatsApp messages to multiple phone numbers simultaneously. It uses NodeJS and the `whatsapp-web.js` free open source library for Whatsapp Client.
+This is a simple WhatsApp Broadcast / Sender Bot that allows users to automatically broadcast WhatsApp messages to multiple phone numbers simultaneously. It uses NodeJS and the `whatsapp-web.js` free open source library for Whatsapp Client.
 
 ## Prerequisites
 

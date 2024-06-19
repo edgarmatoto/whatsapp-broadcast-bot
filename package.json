@@ -7,7 +7,7 @@
     "test": "Error: no test specified",
     "start": "node send.js"
   },
-  "author": "todlymodly",
+  "author": "edgarmatt",
   "license": "ISC",
   "dependencies": {
     "qrcode-terminal": "^0.12.0",

@@ -1,6 +1,6 @@
 {
   "name": "whatsapp_broadcast_bot",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A script to automaticly broadcast whatsapp message.",
   "main": "send.js",
   "scripts": {

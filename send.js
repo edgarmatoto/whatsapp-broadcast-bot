@@ -3,7 +3,11 @@ const qrcode = require("qrcode-terminal");
 const fs = require("fs");
 
 console.log("Loading image.jpeg");
-const img = fs.readFileSync("./image.jpeg", { encoding: "base64" });
+let img;
+if (fs.existsSync("./image.jpeg")) {
+  img = fs.readFileSync("./image.jpeg", { encoding: "base64" });
+}
+
 const client = new Client({
   puppeteer: { headless: true },
   authStrategy: new LocalAuth(),
@@ -33,16 +37,22 @@ const message = fs.readFileSync("message.txt", "utf-8");
 client.on("ready", async () => {
   console.log('\nWhatsapp successfully connected.');
 
-  const media = new MessageMedia("image/jpeg", img, "image.jpeg");
-
   try {
     for (let index = 0; index < phones.length; index++) {
       console.log('\nDelaying for a second to avoid ban...');
       await delay(random(3000, 7000));
       console.log("Sending to " + phones[index]);
-      client.sendMessage(phones[index], message, {
-        media,
-      });
+
+      // Check if iamge attached
+      if (img) {
+        const media = new MessageMedia("image/jpeg", img, "image.jpeg");
+        client.sendMessage(phones[index], message, {
+          media,
+        });
+      } else {
+        client.sendMessage(phones[index], message);
+      }
+      
 
       console.log("Success\n");
     }
